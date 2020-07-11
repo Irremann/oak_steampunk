@@ -185,6 +185,13 @@ minetest.register_decoration({
   flags = {place_center_z = true, place_center_x = true},
 })
 
+-- register leaf decay for oak tree
+default.register_leafdecay({
+        trunks = {"oak_steampunk:oak_tree_trunk"},
+        leaves = {"oak_steampunk:oak_tree_leaves"},
+        radius = 3,
+})
+
 minetest.register_craft({
 	output = "oak_steampunk:oak_tree_planks 4",
 	recipe = {{"oak_steampunk:oak_tree_trunk"}}
