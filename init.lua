@@ -87,7 +87,6 @@ local _ = {
 
 local T = {
   name = "oak_steampunk:oak_tree_trunk",
-  force_place = true,
 }
 
 local L = {
@@ -176,9 +175,9 @@ oak_tree_schematic = {
 minetest.register_decoration({
   deco_type = "schematic",
   place_on = {"default:dirt_with_grass", "default:dirt_with_coniferous_litter", "dirt_with_snow"},
-  biomes = {"coniferous_forest", "taiga"}, -- "grassland", "deciduous_forest", 
+  biomes = {"grassland", "snowy_grassland"}, -- "deciduous_forest", "coniferous_forest", "taiga"
   sidelen = 5,
-  fill_ratio = 0.001,
+  fill_ratio = 0.0005,
   schematic = oak_tree_schematic,
   rotation = 'random',
   y_min = 20,
