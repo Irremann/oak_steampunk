@@ -203,12 +203,25 @@ minetest.register_node("oak_steampunk:oak_tree_planks", {
 	sounds = default.node_sound_wood_defaults(),
 })
 
-if minetest.get_modpath("stairs") then
-	stairs.register_all("oak_tree_planks", "oak_steampunk:oak_tree_planks",
-		{choppy = 2, oddly_breakable_by_hand = 2, flammable = 3},
-		{"oak_wood.png"},
-		"Oak Wood",
-		stairs.wood)
+-- check and register stairs
+if minetest.global_exists("stairs") then
+
+	if stairs.mod and stairs.mod == "redo" then
+
+		stairs.register_all("oak_tree_planks", "oak_steampunk:oak_tree_planks",
+			{choppy = 2, oddly_breakable_by_hand = 2, flammable = 3},
+			{"oak_wood.png"},
+			"Oak Wood",
+			default.node_sound_wood_defaults())
+	else
+
+		stairs.register_stair_and_slab("oak_tree_planks", "oak_steampunk:oak_tree_planks",
+			{choppy = 2, oddly_breakable_by_hand = 2, flammable = 3},
+			{"oak_wood.png"},
+			"Oak Wood Stair",
+			"Oak Wood Slab",
+			default.node_sound_wood_defaults())
+	end
 end
 
 -- aliases
